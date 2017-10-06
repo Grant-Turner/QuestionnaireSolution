@@ -1,0 +1,17 @@
+﻿@model PairingTest.Web.Models.QuestionnaireViewModel
+@{
+    ViewBag.Title = @Model.QuestionnaireTitle;
+}
+
+<h2>@Html.DisplayFor(m => m.QuestionnaireTitle)</h2>
+
+<form>
+    @for (var i = 0; i < Model.QuestionsText.Count(); i++)
+    {
+        <div class="form-group">
+            <label for="txtAnswer@(i)"><span>@(i + 1). </span>@Html.DisplayFor(m => m.QuestionsText[i])</label>
+            @Html.TextBox("txtAnswer"+i,"",new {@class = "form-control" })
+        </div>
+    }
+    <button type="submit" class="btn btn-primary">Submit Answers</button>
+</form>
